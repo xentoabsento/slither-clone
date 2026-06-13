@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slither Clone</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas"></canvas>
+
+    <div id="start-screen" class="overlay">
+      <div class="panel start-panel">
+        <div class="logo">
+          <span class="logo-s">s</span><span class="logo-lither">lither</span><span class="logo-io">.io</span>
+          <span class="logo-clone">clone</span>
+        </div>
+        <p class="tagline">Jedz, rośnij i unikaj innych węży!</p>
+        <input type="text" id="nickname" maxlength="16" placeholder="Twój nick..." autocomplete="off">
+        <button id="play-btn" class="btn-play">Graj!</button>
+        <div class="controls-hint">
+          <p><kbd>LPM</kbd> — kierunek &nbsp;|&nbsp; <kbd>Spacja</kbd> / <kbd>Shift</kbd> — boost</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="hud" class="hidden">
+      <div class="hud-top">
+        <div class="score-box">
+          <span class="label">Długość</span>
+          <span id="score">0</span>
+        </div>
+        <div class="leaderboard">
+          <h3>Top 10</h3>
+          <ol id="leaderboard-list"></ol>
+        </div>
+      </div>
+      <div id="minimap-wrap">
+        <canvas id="minimap"></canvas>
+      </div>
+      <div id="boost-bar-wrap">
+        <div id="boost-bar"></div>
+      </div>
+    </div>
+
+    <div id="death-screen" class="overlay hidden">
+      <div class="panel death-panel">
+        <h2>Game Over</h2>
+        <p id="death-message">Zginąłeś!</p>
+        <p class="final-score">Długość: <span id="final-score">0</span></p>
+        <button id="restart-btn" class="btn-play">Zagraj ponownie</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
