@@ -584,26 +584,17 @@
     ctx.strokeStyle = 'rgba(80, 60, 130, 0.18)';
     ctx.lineWidth = 1;
 
-    const viewLeft = camera.x - width / 2 - CONFIG.GRID_SIZE;
-    const viewRight = camera.x + width / 2 + CONFIG.GRID_SIZE;
-    const viewTop = camera.y - height / 2 - CONFIG.GRID_SIZE;
-    const viewBottom = camera.y + height / 2 + CONFIG.GRID_SIZE;
-
-    const startX = Math.floor(viewLeft / CONFIG.GRID_SIZE) * CONFIG.GRID_SIZE;
-    for (let wx = startX; wx <= viewRight; wx += CONFIG.GRID_SIZE) {
-      const sx = wx - camera.x + width / 2;
+    for (let x = 0; x <= width; x += CONFIG.GRID_SIZE) {
       ctx.beginPath();
-      ctx.moveTo(sx, 0);
-      ctx.lineTo(sx, height);
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
       ctx.stroke();
     }
 
-    const startY = Math.floor(viewTop / CONFIG.GRID_SIZE) * CONFIG.GRID_SIZE;
-    for (let wy = startY; wy <= viewBottom; wy += CONFIG.GRID_SIZE) {
-      const sy = wy - camera.y + height / 2;
+    for (let y = 0; y <= height; y += CONFIG.GRID_SIZE) {
       ctx.beginPath();
-      ctx.moveTo(0, sy);
-      ctx.lineTo(width, sy);
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
       ctx.stroke();
     }
   }
